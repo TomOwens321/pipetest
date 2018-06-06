@@ -1,12 +1,8 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                step {
-                    make
-                }
-            }
-        }
+node('jslave') {
+    git url: 'https://github.com/TomOwens321/pipetest'
+    def v = version()
+    if (v) {
+        echo "Building version ${v}"
     }
+    sh make
 }

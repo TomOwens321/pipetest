@@ -1,4 +1,11 @@
-node('jslave') {
-    git url: 'https://github.com/TomOwens321/pipetest'
-    sh 'make'
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'make' 
+            }
+        }
+    }
 }

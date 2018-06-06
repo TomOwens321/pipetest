@@ -8,5 +8,10 @@ pipeline {
                 sh '/usr/bin/make' 
             }
         }
+        stage('Test'){
+            steps {
+                sh './hello'
+            }
+        }
     }
 }

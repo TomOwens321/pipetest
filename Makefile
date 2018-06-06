@@ -3,4 +3,4 @@ hello: hello.o
 	$(CC) -o hello hello.cpp
 
 clean:
-	rm hello *.o
+	rm -f hello *.o

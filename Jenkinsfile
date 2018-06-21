@@ -1,11 +1,14 @@
 node ('jslave') {
-    stage 'Checkout'
+    stage ('Checkout') {
         checkout scm
-    
-    stage 'Build'
+    }
+
+    stage ('Build') {
         sh 'make clean'
         sh 'make'
+    }
 
-    stage 'Test'
+    stage ('Test') {
         sh './hello'
+    }
 }

@@ -1,19 +1,11 @@
-pipeline {
-    agent {
-        label 'jslave'
-    }
+node ('jslave') {
+    stage 'Checkout'
+        checkout scm
+    
+    stage 'Build'
+        sh 'make clean'
+        sh 'make'
 
-    stages {
-        stage('Build') {
-            steps {
-                sh '/usr/bin/make clean'
-                sh '/usr/bin/make' 
-            }
-        }
-        stage('Test'){
-            steps {
-                sh './hello'
-            }
-        }
-    }
+    stage 'Test'
+        sh './hello'
 }
